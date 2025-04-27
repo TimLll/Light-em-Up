@@ -1,3 +1,7 @@
+const track = new Audio('./snd/Teeth-starred Face.mp3'); // Soundtrack: "Teeth-starred Face" by syntholydian
+const sound = new Audio('./snd/hey.mp3');
+
+let filter;
 let backgr;
 let lookHere;
 let lights = true;
@@ -95,9 +99,15 @@ function update(e){
     document.documentElement.style.setProperty('--cursorY', y + 'px'); 
 
     var panelLeft = document.querySelector('.looky');
-    var panelRight = document.querySelector('.instructions');
+    /* var panelRight = document.querySelector('.instructions'); */
+    var green = document.getElementById('greenlight');
+    var yellow = document.getElementById('yellowlight');
+    var red = document.getElementById('redlight');
         panelLeft.style.display = "block";
-        panelRight.style.display = "block";
+        /* panelRight.style.display = "block"; */
+        green.style.display = "block";
+        yellow.style.display = "block";
+        red.style.display = "block";
         //winMessage.innerHTML = "";
         foundIt = false;
 
@@ -113,6 +123,7 @@ function update(e){
     while(x >= cCoords[4]-(bCoords[0]/100*4) && x <= cCoords[4]+(bCoords[0]/100*4) && y >= cCoords[5]-(bCoords[1]/100*4) && y <= cCoords[5]+(bCoords[0]/100*4)) {
         yellowLight.style.setProperty('box-shadow:', '0px 0px 16px 1px rgba(255,255,0,1)'); //funzt net
         yellowLight.style.setProperty('background-color', 'yellow');
+        playSound();
         //winMessage = document.getElementById("youwin");
         //winMessage.style.color = "yellow";
         //winMessage.innerHTML = "DA! Schau mal genauer...";
@@ -120,15 +131,21 @@ function update(e){
         break;
     }
 
+    while (x <= (bCoords[0]/100*5) && y <= bCoords[1]-(bCoords[1]/100*85)) { // Realtive Größen verwenden! Original x,y = 175, 550
+        green.style.display = "none"
+        yellow.style.display = "none"
+        red.style.display = "none"
+        break;
+    }
     while (x <= (bCoords[0]/100*15) && y >= bCoords[1]-(bCoords[1]/100*20)) { // Realtive Größen verwenden! Original x,y = 175, 550
         panelLeft.style.display = "none"
         break;
     }
 
-    while (x >= (bCoords[0]/100*70) && y >= bCoords[1]-(bCoords[1]/100*20)) { // Realtive Größen verwenden! Original x,y = 1100, 550
+  /*   while (x >= (bCoords[0]/100*70) && y >= bCoords[1]-(bCoords[1]/100*20)) { // Realtive Größen verwenden! Original x,y = 1100, 550
         panelRight.style.display = "none"
         break;
-    }
+    } */
 }
 
 // Siegbedingung prüfen.
@@ -144,6 +161,27 @@ const gotIt = () => {
     //    winMessage.style.color = "red";
     //    winMessage.innerHTML = "Nope.";
     }
+}
+
+let playMusic = () => {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const context = new AudioContext();
+    const soundtrack = context.createMediaElementSource(track);
+    filter = context.createBiquadFilter();
+    let reverb = context.createConvolver();
+    soundtrack.connect(filter).connect(context.destination);
+    soundtrack.connect(reverb).connect(context.destination);
+    filter.type = 'allpass';
+    track.volume = 0.8;
+    track.loop = true;
+    if (track.currentTime == 0){
+    track.play();
+    }
+}
+
+let playSound = () => {
+    sound.volume = 0.8;
+    sound.play();
 }
 
 function enterFullscreen(element) {
@@ -167,6 +205,12 @@ function enterFullscreen(element) {
 document.addEventListener('onpopstate', enterFullscreen); 
 drawBoard();
 showClip();
+
+const startGame = document.getElementById('startgame');
+startGame.addEventListener('click', function() {
+    playMusic();
+    startGame.style.display = "none";
+});
 
 while(!foundIt) {
     document.addEventListener('mousemove', update);

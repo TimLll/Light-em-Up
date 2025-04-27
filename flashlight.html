@@ -2,27 +2,36 @@
 <html>
     <head>
     <meta charset="UTF-8">
-        <title>*OPERATION: FLASHLIGHT – A Fun Game for Lonely People*</title>
+        <title>LIGHT 'EM UP – Fun Game for Loners</title>
         <link href="./flashlight.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
         </script>   
     </head>
     <body>
         <canvas class="hero">
-        </canvas> <!-- ...war vorher div-Container! -->
+        </canvas>
+        <div id="startgame">
+            <h1>Light 'em Up</h1>
+            <h2>- A Fun Game for Lonley People -</h2>
+            <ul>
+                <li>Find the image detail shown below with your flashlight.</li>
+                <li>If your cone of light is near to the detail's position, you'll get a hint.</li>
+                <li>Have fun - and LIGHT 'EM UP ALREADY!</li>
+            </ul>
+            <button class="startbutton">Start game</button>
+        </div>
         <div class="ampel">
                 <div class="light" id="redlight" height="2vh" width="2vw"></div>
                 <div class="light" id="yellowlight"></div>
                 <div class="light" id="greenlight"></div>
         </div>
-        <footer class="looky">Finde das hier:
+        <footer class="looky">Light this up:
             <canvas class="theclip"></canvas>
         </footer>
-        <footer class="instructions">1) Wenn Du ganz nah dran bist, gibt's einen <i>Hinweis</i>.<br/> 
+        <!-- <footer class="instructions">1) Wenn Du ganz nah dran bist, gibt's einen <i>Hinweis</i>.<br/> 
             <i>2) Doppelklicke</i>, wenn du dir sicher bist.<br/>
             3) Drücke <i>F5</i> für einen neuen Bildausschnitt.
-            <!--<div id="youwin">Platzhalter</div>-->
-        </footer>
+        </footer> -->
         <!--<footer class="ampel">
             <div class="light" id="redlight" height="2vh" width="2vw"></div>
             <div class="light" id="yellowlight"></div>
