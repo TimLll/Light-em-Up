@@ -1,0 +1,7 @@
+body{
+  background: black;
+ }
+#canvas1{
+   display: block;
+   margin:100px auto;
+ }

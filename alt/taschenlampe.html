@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="UTF-8">
+ <title>*** OPERATION: FLASHLIGHT ***</title>
+ <link href="./taschenlampe.css" rel="stylesheet" type="text/css">
+ <script 
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+ </script>   
+</head>
+  <body>
+  <div class="canvas-wrapper">
+   <canvas id="canvas" ></canvas>
+  </div>
+<!--   <script type="text/javascript" src="taschenlampe_01.js"></script> -->
+  <script>
+    function circUpdate() {
+        context.beginPath();
+        context.arc(100, 100, 50, 0, 2 * Math.PI, true);
+        context.fillStyle = "#FF6A6A";
+        context.fill();
+    }
+    circupdate();</script>
+</body>
+</html>

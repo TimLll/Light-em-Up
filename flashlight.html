@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <title>*OPERATION: FLASHLIGHT – A Fun Game for Lonely People*</title>
+        <link href="./flashlight.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>   
+    </head>
+    <body>
+        <canvas class="hero">
+        </canvas> <!-- ...war vorher div-Container! -->
+        <div class="ampel">
+                <div class="light" id="redlight" height="2vh" width="2vw"></div>
+                <div class="light" id="yellowlight"></div>
+                <div class="light" id="greenlight"></div>
+        </div>
+        <footer class="looky">Finde das hier:
+            <canvas class="theclip"></canvas>
+        </footer>
+        <footer class="instructions">1) Wenn Du ganz nah dran bist, gibt's einen <i>Hinweis</i>.<br/> 
+            <i>2) Doppelklicke</i>, wenn du dir sicher bist.<br/>
+            3) Drücke <i>F5</i> für einen neuen Bildausschnitt.
+            <!--<div id="youwin">Platzhalter</div>-->
+        </footer>
+        <!--<footer class="ampel">
+            <div class="light" id="redlight" height="2vh" width="2vw"></div>
+            <div class="light" id="yellowlight"></div>
+            <div class="light" id="greenlight"></div>
+        </footer>-->
+    </body>
+    <script type="text/javascript" src="./flashlight.js"></script>
+</html>

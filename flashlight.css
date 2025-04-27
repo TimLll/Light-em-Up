@@ -1,0 +1,110 @@
+body {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.hero {
+    background-repeat: no-repeat;
+}
+
+.looky {
+    display: block;
+    position: fixed;
+    height: 17.5vh;
+    width: 7vw;
+    left: 0;
+    bottom: 0;
+    padding: 1%;
+    background-color: rgba(0, 29, 37, 0.95);
+    color: #fff;
+}
+
+.theclip {
+    display: block;
+    margin: auto;
+}
+
+.instructions {
+    font-size: 12pt;
+    line-height: 16pt;
+    position: fixed;
+    height: 10vh;
+    width: 23vw;
+    right: 4vw;
+    bottom: 0;
+    padding: 2%;
+    background-color: rgba(0, 29, 37, 0.95);
+    color: #fff;
+}
+
+.ampel {
+    position: absolute;
+    height: 14vh;
+    width: 4vw;
+    left: 0;
+    top: 0;
+    padding-top: 2%;
+    background-color: rgba(0, 29, 37, 0);
+    z-index: 50;
+}
+
+.light {
+    height: 30px;
+    width: 30px;
+    left: 1vw;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    align-self: center;
+    position: fixed;
+    z-index: 100;
+}
+
+#redlight {
+    top: 2vh;
+    background-color: red;
+    box-shadow: 0px 0px 20px 1px rgba(255,0,0,1);
+    border-radius: 50%;
+}
+
+#yellowlight {
+    top: 7vh;
+    background-color: yellow;
+    box-shadow: 0px 0px 20px 1px rgba(255,255,0,1);
+    border-radius: 50%;
+}
+
+#greenlight {
+    top: 12vh;
+    background-color: rgb(0, 255, 0);
+    box-shadow: 0px 0px 20px 1px rgba(0,255,0,1);
+    border-radius: 50%;
+}
+
+:root {
+   cursor: none;
+   --cursorX: 50vw;
+   --cursorY: 50vh; 
+}
+
+:root::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+    background: radial-gradient(circle 12vh at var(--cursorX) var(--cursorY),
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.75) 88%,
+    rgba(0,0,0,0.96) 100%);
+ }
+
+ #youwin {
+    color: rgba(0, 29, 37, 0.95);
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+    font-size: 20pt;
+    font-weight: bolder;
+    padding: 20px;
+ }
